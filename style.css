@@ -1,0 +1,92 @@
+/* Apply Source Code Pro font to the entire page */
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+body {
+    font-family: 'Source Code Pro', monospace !important;
+    font-weight: 400;
+}
+
+/* Style the header */
+h1 {
+    color: #333;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Style form input fields */
+input[type="text"],
+input[type="date"],
+input[type="radio"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-family: 'Source Code Pro', monospace;
+}
+
+/* Style radio buttons */
+input[type="radio"] {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+
+
+/* Style the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+/* Style table header */
+thead {
+    background-color: #f7fafc;
+}
+
+/* Style table header cells */
+th {
+    padding: 0.75rem;
+    text-align: left;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #6b7280;
+    border-bottom: 2px solid #e5e7eb;
+    text-align: center;
+}
+
+/* Style table data rows */
+tbody tr:nth-child(even) {
+    background-color: #f3f4f6;
+}
+
+/* Style table data cells */
+td {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+    color: #4b5563;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+
+/* Style the Edit and Delete buttons */
+.edit-button,
+.delete-button {
+    padding: 0.25rem 0.5rem;
+    margin-right: 0.5rem;
+    font-size: 1rem; /* Increase the font size to adjust icon size */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.edit-button:hover {
+    background-color: #c7d2fe;
+}
+
+.delete-button:hover {
+    background-color: #feb2b2;
+}
