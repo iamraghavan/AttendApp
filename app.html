@@ -18,236 +18,92 @@
 
   <div class="container mx-auto p-4">
     <div class="flex justify-between items-center">
-      <h1 class="text-2xl font-semibold mb-4">Attendance App</h1>
-      <h3 id="currentDate" class="text-sm text-gray-500"></h3>
+        <h1 class="text-2xl font-semibold mb-4">Attendance App</h1>
+        <h3 id="currentDate" class="text-sm text-gray-500"></h3>
     </div>
 
-    <button id="addPersonBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-      Add Person
-    </button>
-    <div id="addPersonModal" class="hidden fixed z-10 inset-0 overflow-y-auto">
-      <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-        <!-- Modal overlay -->
-        <div class="fixed inset-0 transition-opacity" aria-hidden="true">
-          <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-        </div>
-        <!-- Modal content -->
-        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-
-        <div
-          class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-          <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-            <div class="sm:flex sm:items-start">
-              <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                <h3 class="text-lg leading-6 font-medium text-gray-900">Add Person</h3>
-                <div class="mt-2">
-                  <form id="addPersonForm" class="space-y-4">
-                    <div class="mb-4">
-                      <label for="personName" class="block text-sm font-medium text-gray-700">Person Name</label>
-                      <input type="text" id="personName" name="personName" required
-                        class="mt-1 p-2 block w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                    </div>
-                    <div class="mb-4">
-                      <label class="block text-sm font-medium text-gray-700">Regular / Intent</label>
-                      <div class="flex space-x-4">
-                        <label class="inline-flex items-center">
-                          <input type="radio" id="regular" name="regularOrIntent" value="Regular" required
-                            class="form-radio text-indigo-600">
-                          <span class="ml-2">Regular</span>
-                        </label>
-                        <label class="inline-flex items-center">
-                          <input type="radio" id="intent" name="regularOrIntent" value="Intent" required
-                            class="form-radio text-indigo-600">
-                          <span class="ml-2">Intent</span>
-                        </label>
-                      </div>
-                    </div>
-                    <div class="mb-4">
-                      <label for="joiningDate" class="block text-sm font-medium text-gray-700">Joining Date</label>
-                      <input type="date" id="joiningDate" name="joiningDate" required
-                        class="mt-1 p-2 block w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                    </div>
-                    <div class="mb-4">
-                      <label for="jobRole" class="block text-sm font-medium text-gray-700">Job Role</label>
-                      <input type="text" id="jobRole" name="jobRole" required
-                        class="mt-1 p-2 block w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                    </div>
-                    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                      <button type="button" value="submit" id="addPersonSubmitBtn"
-                        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-200 focus:ring-opacity-50 sm:ml-3 sm:w-auto sm:text-sm">
-                        Add
-                      </button>
-                      <button type="button" id="addPersonCancelBtn"
-                        class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-gray-200 focus:ring-opacity-50 sm:mt-0 sm:w-auto sm:text-sm">
-                        Cancel
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
+    <form id="addPersonForm" class="space-y-6 p-6 bg-white shadow-md rounded-lg">
+      <h2 class="text-2xl font-semibold mb-4 text-gray-800">Add New Person</h2>
+      <div class="mb-4">
+          <label for="personName" class="block text-sm font-medium text-gray-700">Person Name</label>
+          <input type="text" id="personName" name="personName" required
+              class="mt-1 p-3 w-full rounded-md border focus:ring focus:ring-indigo-400">
+      </div>
+      <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">Regular / Intent</label>
+          <div class="flex items-center space-x-4">
+              <label class="inline-flex items-center">
+                  <input type="radio" id="regular" name="regularOrIntent" value="Regular" required
+                      class="form-radio text-indigo-600">
+                  <span class="ml-2 text-gray-800">Regular</span>
+              </label>
+              <label class="inline-flex items-center">
+                  <input type="radio" id="intent" name="regularOrIntent" value="Intent" required
+                      class="form-radio text-indigo-600">
+                  <span class="ml-2 text-gray-800">Intent</span>
+              </label>
           </div>
-        </div>
-
-
       </div>
-    </div>
-
-    <table class="min-w-full divide-y divide-gray-200 mt-4">
-      <thead>
-        <tr>
-          <th
-            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-            UserID</th>
-          <th
-            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-            Person Name</th>
-          <th
-            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-            Regular / Intent</th>
-          <th
-            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-            Joining Date</th>
-          <th
-            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-            Job Role</th>
-          <th
-            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-            Edit</th>
-          <th
-            class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-            Delete</th>
-        </tr>
-      </thead>
-      <tbody id="personList">
-        <!-- Table data will be populated here -->
-      </tbody>
-    </table>
-  </div>
-
-
-  <!-- Modal -->
-  <!-- Modal -->
-  <div id="editModal"
-    class="fixed inset-0 flex items-center justify-center z-50 overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
-    <div class="relative w-auto max-w-3xl mx-auto my-6">
-      <!-- Modal content -->
-      <div class="bg-white rounded-lg shadow-lg">
-        <!-- Modal header -->
-        <div class="modal-header p-5 border-b border-gray-200">
-          <h2 class="text-xl font-semibold">Edit Person <span id="toshowname"></span></h2>
-          <button id="closeEditModal" class="absolute top-0 right-0 p-2 m-2 text-gray-500 hover:text-gray-700"
-            onclick="closeEditModal()">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+      <div class="mb-4">
+          <label for="joiningDate" class="block text-sm font-medium text-gray-700">Joining Date</label>
+          <input type="date" id="joiningDate" name="joiningDate" required
+              class="mt-1 p-3 w-full rounded-md border focus:ring focus:ring-indigo-400">
+      </div>
+      <div class="mb-4">
+          <label for="jobRole" class="block text-sm font-medium text-gray-700">Job Role</label>
+          <input type="text" id="jobRole" name="jobRole" required
+              class="mt-1 p-3 w-full rounded-md border focus:ring focus:ring-indigo-400">
+      </div>
+      <div class="flex justify-end items-center">
+          <button type="button" value="submit" id="addPersonSubmitBtn"
+              class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-400">
+              Add
           </button>
-        </div>
-        <!-- Modal body -->
-        <div class="modal-body p-5">
-          <form id="editForm">
-            <input type="hidden" id="editUserId" />
-            <div class="mb-4">
-              <label for="editPersonName" class="block text-sm font-medium text-gray-700">Person Name:</label>
-              <input type="text" id="editPersonName" class="mt-1 p-2 rounded-md border border-gray-300 w-full"
-                required />
-            </div>
-            <div class="mb-4">
-              <label for="editRegularOrIntent" class="block text-sm font-medium text-gray-700">Regular/Intent:</label>
-              <input type="text" id="editRegularOrIntent" class="mt-1 p-2 rounded-md border border-gray-300 w-full"
-                required />
-            </div>
-            <div class="mb-4">
-              <label for="editJoiningDate" class="block text-sm font-medium text-gray-700">Joining Date:</label>
-              <input type="date" id="editJoiningDate" class="mt-1 p-2 rounded-md border border-gray-300 w-full"
-                required />
-            </div>
-            <div class="mb-4">
-              <label for="editJobRole" class="block text-sm font-medium text-gray-700">Job Role:</label>
-              <input type="text" id="editJobRole" class="mt-1 p-2 rounded-md border border-gray-300 w-full" required />
-            </div>
-            <button type="button" id="updateButton"
-              class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Update</button>
-          </form>
-        </div>
+          <button type="button" id="addPersonCancelBtn"
+              class="ml-4 px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 focus:outline-none focus:ring focus:ring-gray-400">
+              Cancel
+          </button>
       </div>
-    </div>
-  </div>
-
+  </form>
   
 
-  <!-- Modal for editing data -->
-  <!-- <div id="editModal" class="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
-    <div class="relative w-auto max-w-3xl mx-auto my-6">
-      
-        <div class="modal-content bg-white rounded-lg shadow-lg relative flex flex-col w-full p-6">
-        
-            <button class="close absolute top-0 right-0 p-4" id="closeEditModal">
-                <svg class="h-6 w-6 text-gray-600 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-            <h2 class="text-xl font-semibold mb-4">Edit Person Data</h2>
-            <form id="editPersonForm" class="mb-4">
-                <div class="mb-4">
-                    <label for="editPersonName" class="block text-sm font-medium text-gray-700">Name:</label>
-                    <input type="text" id="editPersonName" class="mt-1 p-2 border rounded-md w-full" required>
-                </div>
-                <div class="mb-4">
-                    <label class="block text-sm font-medium text-gray-700">Regular or Intent:</label>
-                    <div class="flex mt-1">
-                        <input type="radio" name="editRegularOrIntent" id="editRegular" value="Regular" class="mr-2" required>
-                        <label for="editRegular" class="text-sm font-medium text-gray-700">Regular</label>
-                        <input type="radio" name="editRegularOrIntent" id="editIntent" value="Intent" class="ml-4 mr-2" required>
-                        <label for="editIntent" class="text-sm font-medium text-gray-700">Intent</label>
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <label for="editJoiningDate" class="block text-sm font-medium text-gray-700">Joining Date:</label>
-                    <input type="date" id="editJoiningDate" class="mt-1 p-2 border rounded-md w-full" required>
-                </div>
-                <div class="mb-4">
-                    <label for="editJobRole" class="block text-sm font-medium text-gray-700">Job Role:</label>
-                    <input type="text" id="editJobRole" class="mt-1 p-2 border rounded-md w-full" required>
-                </div>
-            </form>
-            <button id="updatePersonBtn" class="py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Update</button>
-        </div>
+    <div class="overflow-x-auto mt-4">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead>
+                <tr>
+                    <th
+                        class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        UserID</th>
+                    <th
+                        class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        Person Name</th>
+                    <th
+                        class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        Regular / Intent</th>
+                    <th
+                        class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        Joining Date</th>
+                    <th
+                        class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        Job Role</th>
+                    <th
+                        class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        Edit</th>
+                    <th
+                        class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        Delete</th>
+                </tr>
+            </thead>
+            <tbody id="personList">
+                <!-- Table data will be populated here -->
+            </tbody>
+        </table>
     </div>
-  </div> -->
+</div>
 
 
-  <script>
-    // Function to open the edit modal
-    function openEditModal() {
-      // Show the modal
-      const editModal = document.getElementById('editModal');
-      editModal.classList.remove('hidden');
-      editModal.classList.add('flex');
-    }
 
-    // Function to close the edit modal
-    function closeEditModal() {
-      // Hide the modal
-      const editModal = document.getElementById('editModal');
-      editModal.classList.remove('flex');
-      editModal.classList.add('hidden');
-    }
 
-    // Call the openEditModal function when the "Edit" button is clicked
-    // document.getElementById('editButton').addEventListener('click', openEditModal);
-
-    // Call the closeEditModal function when the "Close" button or overlay is clicked
-    document.getElementById('closeEditModal').addEventListener('click', closeEditModal);
-    document.getElementById('editModal').addEventListener('click', (event) => {
-      if (event.target === document.getElementById('editModal')) {
-        closeEditModal();
-      }
-    });
-
-    // Rest of your code for updating data goes here
-  </script>
 
   <script>
     function updateCurrentDate() {
@@ -272,24 +128,6 @@
     setInterval(updateCurrentDate, 1000);
   </script>
 
-  <script>
-    // Function to open the modal
-    function openModal() {
-      document.getElementById('addPersonModal').classList.remove('hidden');
-    }
-
-    // Function to close the modal
-    function closeModal() {
-      document.getElementById('addPersonModal').classList.add('hidden');
-    }
-
-    // Event listener for the "Add Person" button
-    document.getElementById('addPersonBtn').addEventListener('click', openModal);
-
-    // Event listener for the "Cancel" button in the modal
-    document.getElementById('addPersonCancelBtn').addEventListener('click', closeModal);
-  </script>
-
 
 
 
@@ -302,11 +140,10 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
+<script>
 
-  <script>
-    // Initialize Firebase
-    const firebaseConfig = {
-      apiKey: "AIzaSyAQSiYoYcm4-a2672XHJDvi2wYzXfgKxk8",
+const firebaseConfig = {
+  apiKey: "AIzaSyAQSiYoYcm4-a2672XHJDvi2wYzXfgKxk8",
       authDomain: "waggy-tails-8d2ab.firebaseapp.com",
       databaseURL: "https://waggy-tails-8d2ab-default-rtdb.firebaseio.com",
       projectId: "waggy-tails-8d2ab",
@@ -314,178 +151,161 @@
       messagingSenderId: "1035325280279",
       appId: "1:1035325280279:web:9237427e574de9e4ae0c52",
       measurementId: "G-XJGCMKWQHK"
-    };
+  };
 
-    firebase.initializeApp(firebaseConfig);
-    const database = firebase.database();
+  firebase.initializeApp(firebaseConfig);
 
-    const addPersonForm = document.getElementById('addPersonForm');
-    const addPersonSubmitBtn = document.getElementById('addPersonSubmitBtn');
+  // Reference to the Firebase database
+  const database = firebase.database();
 
-    // Initialize the incrementing value
-    let incrementValue = 1;
+  // Initialize the incrementing value (used for generating unique user IDs)
+  let incrementValue = 1;
 
-    addPersonSubmitBtn.addEventListener('click', () => {
-      // Get form data
-      const personName = document.getElementById('personName').value;
-      const regularOrIntent = document.querySelector('input[name="regularOrIntent"]:checked').value;
-      const joiningDate = document.getElementById('joiningDate').value;
-      const jobRole = document.getElementById('jobRole').value;
+  // Get a reference to the form and submit button
+const addPersonForm = document.getElementById('addPersonForm');
+const addPersonSubmitBtn = document.getElementById('addPersonSubmitBtn');
 
-      // Get the current date in YYMMDD format
-      const currentDate = new Date().toLocaleDateString('en-US', {
-        year: '2-digit',
-        month: '2-digit',
-        day: '2-digit'
-      }).replace(/\//g, '');
+// Listen for the form submission
+addPersonSubmitBtn.addEventListener('click', () => {
+  // Get form data
+  const personName = document.getElementById('personName').value;
+  const regularOrIntent = document.querySelector('input[name="regularOrIntent"]:checked').value;
+  const joiningDate = document.getElementById('joiningDate').value;
+  const jobRole = document.getElementById('jobRole').value;
 
-      // Generate the user ID with the incrementing value
-      const userId = `EGSPASC-${currentDate}-${String(incrementValue).padStart(2, '0')}`;
 
-      // Create a new record in Firebase
-      database.ref('people/' + userId).set({
-        personName: personName,
-        regularOrIntent: regularOrIntent,
-        joiningDate: joiningDate,
-        jobRole: jobRole,
-        userId: userId
-      }).then(() => {
-        // Data successfully stored
-        alert('Data successfully stored.');
-        addPersonForm.reset(); // Clear the form
-        incrementValue++; // Increment the value for the next user
-        // Call a function to update the table with the new data
-        updateTable();
-      }).catch((error) => {
-        console.error("Error storing data: ", error);
-        alert('Error storing data. Please try again later.');
+  function generateRandomChars(length) {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let randomString = '';
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    randomString += characters.charAt(randomIndex);
+  }
+  return randomString;
+}
+
+
+
+  // Get the current date in YYMMDD format
+  const currentDate = new Date().toLocaleDateString('en-US', {
+    year: '2-digit',
+    month: '2-digit',
+    day: '2-digit'
+  }).replace(/\//g, '');
+
+  // Generate a random character string (you can use a function for this)
+  const randomChars = generateRandomChars(6); // Change the number as needed
+
+  // Combine the random characters, personName, currentDate, and incrementValue to create the user ID
+  const userId = `${randomChars}${String(incrementValue).padStart(2, '0')}`;
+
+  // Rest of your code to store data in Firebase
+  // ...
+
+  // Increment the value for the next user
+  incrementValue++;
+
+  const personRef = database.ref('people/' + userId);
+
+// Set the data using the 'personRef'
+personRef.set({
+  personName: personName,
+  regularOrIntent: regularOrIntent,
+  joiningDate: joiningDate,
+  jobRole: jobRole,
+  userId: userId
+}).then(() => {
+  // Data successfully stored
+  alert('Data successfully stored.');
+  addPersonForm.reset(); // Clear the form
+  incrementValue++; // Increment the value for the next user
+}).catch((error) => {
+  console.error("Error storing data: ", error);
+  alert('Error storing data. Please try again later.');
+});
+});
+
+// Function to generate a random character string
+function generateRandomChars(length) {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let randomString = '';
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    randomString += characters.charAt(randomIndex);
+  }
+  return randomString;
+}
+
+
+function updateTable() {
+  const personList = document.getElementById('personList');
+  personList.innerHTML = ''; // Clear the table
+
+  // Retrieve data from Firebase and populate the table
+  database.ref('people').once('value').then((snapshot) => {
+    snapshot.forEach((childSnapshot) => {
+      const userData = childSnapshot.val();
+      const row = document.createElement('tr');
+
+      // Create table cells for each data field
+      const userIDCell = document.createElement('td');
+      userIDCell.textContent = userData.userId;
+
+      const nameCell = document.createElement('td');
+      nameCell.textContent = userData.personName;
+
+      const regularOrIntentCell = document.createElement('td');
+      regularOrIntentCell.textContent = userData.regularOrIntent;
+
+      const joiningDateCell = document.createElement('td');
+      joiningDateCell.textContent = userData.joiningDate;
+
+      const jobRoleCell = document.createElement('td');
+      jobRoleCell.textContent = userData.jobRole;
+
+      const editButton = document.createElement('td');
+      editButton.className = 'edit-button text-blue-500 iconfot';
+      const editIcon = document.createElement('i');
+      editIcon.className = 'fas fa-edit'; // Use a suitable font-awesome class for the edit icon
+      editButton.appendChild(editIcon);
+      editButton.addEventListener('click', () => {
+        // Handle edit action here
+        // You can open the edit modal and pre-fill the form fields with the user's data
+        // You can pass userData to your edit function
+        openEditModal(userData);
       });
-    });
 
-
-    function updateTable() {
-      const personList = document.getElementById('personList');
-      personList.innerHTML = ''; // Clear the table
-
-      // Retrieve data from Firebase and populate the table
-      database.ref('people').once('value').then((snapshot) => {
-        snapshot.forEach((childSnapshot) => {
-          const userData = childSnapshot.val();
-          const row = document.createElement('tr');
-
-
-
-          // Create table cells for each data field
-          const userIDCell = document.createElement('td');
-          userIDCell.textContent = userData.userId;
-
-          const nameCell = document.createElement('td');
-          nameCell.textContent = userData.personName;
-
-          const regularOrIntentCell = document.createElement('td');
-          regularOrIntentCell.textContent = userData.regularOrIntent;
-
-          const joiningDateCell = document.createElement('td');
-          joiningDateCell.textContent = userData.joiningDate;
-
-          const jobRoleCell = document.createElement('td');
-          jobRoleCell.textContent = userData.jobRole;
-
-
-
-
-          const editButton = document.createElement('td');
-        editButton.className = 'edit-button text-blue-500 iconfot';
-        const editIcon = document.createElement('i');
-        editIcon.className = 'fas fa-edit';
-        editButton.appendChild(editIcon);
-        editButton.addEventListener('click', () => {
-          populateEditForm(userData);
-          editModal.style.display = 'block';
-
-          updatePersonBtn.addEventListener('click', () => {
-            const updatedData = {
-              personName: document.getElementById('editPersonName').value,
-              regularOrIntent: document.querySelector('input[name="editRegularOrIntent"]:checked').value,
-              joiningDate: document.getElementById('editJoiningDate').value,
-              jobRole: document.getElementById('editJobRole').value,
-            };
-            updateDataInFirebase(userData.userId, updatedData);
-            editModal.style.display = 'none';
-          });
-        });
-
-        const deleteButton = document.createElement('td');
-        deleteButton.className = 'delete-button text-red-500 iconfot';
-        const deleteIcon = document.createElement('i');
-        deleteIcon.className = 'fas fa-trash';
-        deleteButton.appendChild(deleteIcon);
-        deleteButton.addEventListener('click', () => {
-          if (confirm("Are you sure you want to delete this record?")) {
-            deleteDataFromFirebase(userData.userId);
-          }
-        });
-
-
-          // Append cells to the row
-          row.appendChild(userIDCell);
-          row.appendChild(nameCell);
-          row.appendChild(regularOrIntentCell);
-          row.appendChild(joiningDateCell);
-          row.appendChild(jobRoleCell);
-          row.appendChild(editButton);
-          row.appendChild(deleteButton);
-
-
-          // Append the row to the table
-          personList.appendChild(row);
-        });
+      const deleteButton = document.createElement('td');
+      deleteButton.className = 'delete-button text-red-500 iconfot';
+      const deleteIcon = document.createElement('i');
+      deleteIcon.className = 'fas fa-trash'; // Use a suitable font-awesome class for the delete icon
+      deleteButton.appendChild(deleteIcon);
+      deleteButton.addEventListener('click', () => {
+        // Handle the delete action here
+        // You can ask for confirmation and then delete the data
+        deleteData(userData.userId);
       });
-    }
 
-    function populateEditForm(userData) {
-    document.getElementById('editPersonName').value = userData.personName;
-    const regularOrIntent = userData.regularOrIntent;
-    if (regularOrIntent === 'Regular') {
-      document.getElementById('editRegular').checked = true;
-    } else if (regularOrIntent === 'Intent') {
-      document.getElementById('editIntent').checked = true;
-    }
-    document.getElementById('editJoiningDate').value = userData.joiningDate;
-    document.getElementById('editJobRole').value = userData.jobRole;
-  }
+      // Append cells to the row
+      row.appendChild(userIDCell);
+      row.appendChild(nameCell);
+      row.appendChild(regularOrIntentCell);
+      row.appendChild(joiningDateCell);
+      row.appendChild(jobRoleCell);
+      row.appendChild(editButton);
+      row.appendChild(deleteButton);
 
-  function updateDataInFirebase(userId, updatedData) {
-    database.ref('people/' + userId).update(updatedData).then(() => {
-      alert('Data successfully updated.');
-      updateTable();
-    }).catch((error) => {
-      console.error("Error updating data: ", error);
-      alert('Error updating data. Please try again later.');
+      // Append the row to the table
+      personList.appendChild(row);
     });
-  }
+  });
+}
 
-  function deleteDataFromFirebase(userId) {
-    database.ref('people/' + userId).remove().then(() => {
-      alert('Data successfully deleted.');
-      updateTable();
-    }).catch((error) => {
-      console.error("Error deleting data: ", error);
-      alert('Error deleting data. Please try again later.');
-    });
-  }
+// Call the updateTable function to populate the table on page load
+updateTable();
 
-  
 
-  // closeEditModal.addEventListener('click', () => {
-  //   editModal.style.display = 'none';
-  //   updatePersonBtn.removeEventListener('click');
-  // });
-
-  // Call the updateTable function to populate the table on page load
-  updateTable();
-  </script>
-
+</script>
 
 
 
